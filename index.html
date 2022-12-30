@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-800">
+    <div class="container mx-auto h-screen">
+
+        <div class="form-wrapper p-12 bg-white rounded-lg shadow-lg m-6">
+            <h1 class="text-4xl text-slate-900">Budget Planner</h1>
+            <form id="form" class="mb-3 flex flex-col gap-2">
+                <label for="monthlyIncome">Enter your after-tax monthly income:</label>
+                <input type="text" id="monthlyIncome" name="monthlyIncome"
+                    class="border-2 bg-slate-50 border-slate-300 p-3 rounded text-2xl">
+            </form>
+
+            <div class="flex justify-between text-2xl mb-5">
+                <div class="text-slate-600">Yearly Income: $<span id="yearlyIncome"></span></div>
+                <div class="text-slate-600">Total Percent: <span id="totalPercent" style="color:green;"></span>%</div>
+            </div>
+
+            <div class="flex flex-col gap-1">
+                <div class="budget-item">
+                    <div class="text-2xl font-semibold grow m-auto"><i class="budget-icon bi bi-calendar-check"></i></i>Fixed Costs</div>
+                    <div class="text-bold m-auto">$<span id="fixedCosts"></span></div>
+                    <form id="form2" class="flex relative border-2 border-slate-300 rounded">
+                        <input type="number" id="fixedCostsPercent" min="0" max="100" step="5" class="form-percent-input">
+                        <span class="form-percent-symbol">%</span>
+                    </form>
+                </div>
+                <div class="budget-item">
+                    <div class="text-2xl font-semibold grow m-auto"><i class="budget-icon bi bi-piggy-bank"></i>Savings</div>
+                    <div class="text-bold m-auto">$<span id="savings"></span></div>
+                    <form id="form3" class="flex relative border-2 border-slate-300 rounded">
+                        <input type="number" id="savingsPercent" min="0" max="100" step="5" class="form-percent-input">
+                        <span class="form-percent-symbol">%</span>
+                    </form>
+                </div>
+                <div class="budget-item">
+                    <div class="text-2xl font-semibold grow m-auto"><i class="budget-icon bi bi-graph-up"></i>Investments</div>
+                    <div class="text-bold m-auto">$<span id="investments"></span></div>
+                    <form id="form4" class="flex relative border-2 border-slate-300 rounded">
+                        <input type="number" id="investmentsPercent" min="0" max="100" step="5" class="form-percent-input">
+                        <span class="form-percent-symbol">%</span>
+                    </form>
+                </div>
+                <div class="budget-item">
+                    <div class="text-2xl font-semibold grow m-auto"><i class="budget-icon bi bi-cart-check"></i>Guilt Free</div>
+                    <div class="text-bold m-auto">$<span id="guiltFree"></span></div>
+                    <form id="form5" class="flex relative border-2 border-slate-300 rounded">
+                        <input type="number" id="guiltFreePercent" min="0" max="100" step="5" class="form-percent-input">
+                        <span class="form-percent-symbol">%</span>
+                    </form>
+                </div>
+            </div>
+            <div class="bg-slate-100 rounded p-5 mt-6">
+                <div class="text-slate-600">Total Saved (1 Year): $<span id="totalSaved"></span></div>
+                <div class="text-slate-600">Total Saved (5 Years): $<span id="totalSavedFive"></span></div>
+            </div>
+            
+
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
