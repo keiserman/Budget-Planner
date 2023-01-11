@@ -17,13 +17,13 @@ let investments = income * investmentsPercent;
 let guiltFree = income * guiltFreePercent;
 let totalPercent = (fixedCostsPercent + savingsPercent + investmentsPercent + guiltFreePercent) * 100;
 let totalSaved = savings * 12;
+let val = document.getElementById("myRange").value;
 
 // Update HTML elements with initial calculated values
 document.getElementById("monthlyIncome").value = income;
-document.getElementById("yearlyIncome").textContent = yearlyIncome;
+document.getElementById("yearlyIncome").textContent = yearlyIncome.toLocaleString();
 document.getElementById("totalPercent").textContent = totalPercent;
 document.getElementById("totalSaved").textContent = totalSaved;
-document.getElementById("totalSavedFive").textContent = totalSaved * 5;
 document.getElementById("fixedCosts").textContent = fixedCosts;
 document.getElementById("fixedCostsPercent").value = fixedCostsPercent * 100;
 document.getElementById("investments").textContent = investments;
@@ -32,6 +32,8 @@ document.getElementById("savings").textContent = savings;
 document.getElementById("savingsPercent").value = savingsPercent * 100;
 document.getElementById("guiltFree").textContent = guiltFree;
 document.getElementById("guiltFreePercent").value = guiltFreePercent * 100;
+document.getElementById("yearsSaved").innerHTML = val;
+document.getElementById("totalSaved").innerHTML = (val * totalSaved).toLocaleString();
 
 // Set up event listeners for form elements
 form5.addEventListener("input", updateValues);
@@ -60,7 +62,7 @@ function updateValues() {
   totalPercent = (fixedCostsPercent + savingsPercent + investmentsPercent + guiltFreePercent) * 100;
 
   // Round financial variables to the nearest whole number
-  yearlyIncome = Math.round(yearlyIncome);
+  yearlyIncome = Math.round(yearlyIncome).toLocaleString();
   fixedCosts = Math.round(fixedCosts);
   savings = Math.round(savings);
   investments = Math.round(investments);
@@ -81,6 +83,12 @@ function updateValues() {
   document.getElementById("investments").textContent = investments;
   document.getElementById("savings").textContent = savings;
   document.getElementById("guiltFree").textContent = guiltFree;
-  document.getElementById("totalSaved").textContent = totalSaved;
-  document.getElementById("totalSavedFive").textContent = totalSaved * 5;
+
+  updateSaved();
+}
+
+function updateSaved() {
+  val = document.getElementById("myRange").value;
+  document.getElementById("yearsSaved").innerHTML = val;
+  document.getElementById("totalSaved").innerHTML = (val * totalSaved).toLocaleString();
 }
